@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #compliment-container {
+            margin-top: 20px;
+        }
+
+        #compliment {
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ff69b4;
+            display: inline-block;
+            position: relative;
+            animation: float 2s infinite alternate;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        #friend-photo {
+            max-width: 100%;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff69b4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+        }
+    </style>
+    <title>Sweet Compliment</title>
+</head>
+<body>
+    <h1>For You, <span id="friendName">Your Friend</span></h1>
+    <img id="friend-photo" src="path/to/your/friends/photo1.jpg" alt="Friend's Photo">
+    <div id="compliment-container">
+        <div id="compliment">You are amazing!</div>
+    </div>
+    <p>Click the button to see another sweet compliment!</p>
+    <button onclick="changeCompliment()">Show Another Compliment</button>
+
+    <script>
+        var compliments = [
+            { text: "You light up my world!", photo: "path/to/your/friends/photo1.jpg" },
+            { text: "Your smile is contagious!", photo: "path/to/your/friends/photo2.jpg" },
+            { text: "You make every day brighter!", photo: "path/to/your/friends/photo3.jpg" },
+            // Add more compliments and corresponding photos as needed
+        ];
+
+        function changeCompliment() {
+            var randomIndex = Math.floor(Math.random() * compliments.length);
+            var randomCompliment = compliments[randomIndex];
+
+            document.getElementById("compliment").innerText = randomCompliment.text;
+            document.getElementById("friend-photo").src = randomCompliment.photo;
+        }
+
+        function pickFlower() {
+            var friendName = prompt("What's your friend's name?");
+            if (friendName) {
+                document.getElementById("friendName").innerText = friendName;
+            }
+        }
+    </script>
+</body>
+</html>
